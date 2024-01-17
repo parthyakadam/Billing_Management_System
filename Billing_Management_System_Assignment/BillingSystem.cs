@@ -14,7 +14,7 @@ namespace Billing_Management_System_Assignment
 
             foreach(Item item in items)
             {
-                Console.WriteLine(item.Name + " --> " +item.Price);
+                Console.WriteLine(item.Id + "." + item.Name + " --> " +item.Price);
             }
         }
 
@@ -26,7 +26,7 @@ namespace Billing_Management_System_Assignment
 
             Console.WriteLine(invoice.DisplayItemsList());
 
-            Console.WriteLine("------------------------------\n" +
+            Console.WriteLine("-------------------------\n" +
                 "Grand Total: " + invoice.GrandTotal);
             
         }

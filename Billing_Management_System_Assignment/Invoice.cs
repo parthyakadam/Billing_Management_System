@@ -34,7 +34,7 @@ namespace Billing_Management_System_Assignment
             ItemsList.Add(new ItemInvoice { Item = i1, Quantity = quantiy });
         }
 
-        public string  DisplayItemsList()
+        public string DisplayItemsList()
         {
             StringBuilder sb = new StringBuilder();
 

@@ -8,15 +8,9 @@ namespace Billing_Management_System_Assignment
 {
     public class Item
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-
-        //public Item(string name, int price)
-        //{
-          //  this.Name = name;
-          //  this.Price = price;
-        //}
-
-        
+               
     }
 }

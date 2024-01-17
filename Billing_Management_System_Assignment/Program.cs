@@ -17,8 +17,8 @@ namespace Billing_Management_System_Assignment
             BillingSystem bs = new BillingSystem();
             List<Item> availableItems = new List<Item>
             {
-                new Item { Name= "Apple", Price= 50},
-                new Item { Name= "Banana", Price= 20},
+                new Item { Id= 1, Name= "Apple", Price= 50},
+                new Item { Id= 2, Name= "Banana", Price= 20},
             };
 
             bs.DisplayAvailableItems(availableItems);
@@ -26,34 +26,32 @@ namespace Billing_Management_System_Assignment
 
             while (true) 
             {
-                Console.WriteLine("Enter the items and quantity or enter 'done' to exit");
-                string userInput = Console.ReadLine();
+                Console.WriteLine("Enter the item id: ");
+                int userItem = int.Parse(Console.ReadLine());
 
-                if(userInput.ToLower() == "done")
+                Console.WriteLine("Enter the quantity");
+                int userQty = int.Parse(Console.ReadLine());
+
+                Item selectedItem = availableItems.Find(item => item.Id == userItem);
+                
+                if (selectedItem != null)
                 {
-                    break;
-                }
-
-                string[] inputParts = userInput.Split(' ');
-
-                if (inputParts.Length == 2 && int.TryParse(inputParts[1], out int quantity))
-                {
-                    Item selectedItem = availableItems.Find(item => item.Name == inputParts[0]);
-
-                    if (selectedItem != null)
-                    {
                         
-                        invoice.AddItem(selectedItem, quantity);
+                    invoice.AddItem(selectedItem, userQty);
                         
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid item. Please select a valid item available");
-                    }
                 }
                 else
                 {
-                    Console.WriteLine("Please enter correct format");
+                    Console.WriteLine("Invalid item. Please select a valid item available");
+                }
+
+                Console.WriteLine("Do you want to continue shupping? Press 'y' for yes and 'n' for no");
+                string flag = Console.ReadLine();
+                
+
+                if (flag.ToLower() == "n")
+                {
+                    break;
                 }
             }
 
